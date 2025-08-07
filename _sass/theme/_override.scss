@@ -1,52 +1,66 @@
 // =========================================================================
-// BULMA COMPONENT & ELEMENT HARD OVERRIDES
+// GLOBAL OVERRIDES & THEME SWITCHER
 // =========================================================================
 @use "sass:math";
 
 // --- 1. Base & Helpers ---
-html, body {
+html {
+    // This makes the top navbar layout work correctly
+    // And prevents content from hiding behind it.
+    padding-top: 3.25rem; // Default Bulma navbar height
+    background-color: var(--bg-color);
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease;
+}
+
+body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-    font-weight: $weight-medium;
-    text-decoration: none; // Cleaner look for a modern site
-    transition: color .2s ease;
-
-    &:hover {
-        color: $link-hover; // Use the variable for hover color
-    }
+  transition: color .2s ease;
 }
 
 hr {
-    background-color: $color-border;
+    background-color: var(--border-color);
     height: 1px;
     border: none;
-    margin: 3rem 0; // A bit more space
+    margin: 1.5rem 0;
 }
 
-// ... Keep the rest of your _override.scss file as it is ...
-// The provided override file is well-structured and doesn't need
-// many changes. The button animations, form styling, and component
-// refinements will work great with the new cricket theme.
-
-// --- 2. Typography ---
-// (Your existing code is great here)
-
-// --- 3. Layout ---
-.section {
-    padding: $layout-gap $layout-padding;
-}
-.hero-body {
-    padding: $layout-gap $layout-padding;
-}
-.footer {
-    background-color: $color-background-100; // Use our themed bg
-    border-top: 1px solid $color-border;
-    color: $color-secondary;
-    padding: 4rem 1.5rem 4rem; // More padding
-    .title { color: $color-contrast; }
+// --- 2. Light & Dark Mode CSS Variables ---
+// This is the modern way to handle theme switching.
+// The SCSS variables in _variable.scss are set to use these.
+:root {
+    /* Light Mode (Default) */
+    --bg-color: #f4f7fa;
+    --navbar-bg: #ffffff;
+    --card-bg: #ffffff;
+    --text-color: #2c3e50;
+    --text-muted: #7f8c8d;
+    --heading-color: #2c3e50;
+    --border-color: #e4e7eb;
 }
 
-// ... and so on for the rest of your file. The existing styles are high-quality.
+[data-theme="dark"] {
+    /* Dark Mode */
+    --bg-color: #1a202c;
+    --navbar-bg: #2d3748;
+    --card-bg: #2d3748;
+    --text-color: #e2e8f0;
+    --text-muted: #a0aec0;
+    --heading-color: #ffffff;
+    --border-color: #4a5568;
+}
+
+// --- 3. Component Hard Overrides ---
+.navbar {
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.hero {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+}
