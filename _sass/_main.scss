@@ -1,0 +1,25 @@
+
+@charset "utf-8";
+
+// 1. Import sass:math to enable math.div() globally.
+@use "sass:math";
+
+// 2. Import Bulma's core functions and initial variables.
+// This allows us to use them and then override them.
+@import "../node_modules/bulma/sass/utilities/initial-variables.scss";
+@import "../node_modules/bulma/sass/utilities/functions.scss";
+
+// 3. Import OUR custom variables. These will now override Bulma's defaults.
+@import "./theme/variable";
+
+// 4. Import the rest of the Bulma framework.
+// It will now be built using our custom variables.
+@import "../node_modules/bulma/sass/index";
+
+// 5. Import our final set of hard overrides.
+// These are for styles that variables cannot change.
+@import "./theme/override";
+@import "./theme/homepage";
+@import "./theme/adsense";
+@import "./theme/post";
+

@@ -1,0 +1,245 @@
+encoding: utf-8 # Make sure the encoding is right
+lang: en # Set the site language
+locale : en-IN
+title: "CRM Analytics Academy" # Site name or title
+description: "Personal website and portfolio of Swarnil Singhai, a Software Engineer at Twilio specializing in CRM Analytics, Salesforce, and web technologies. Based in Bangalore, India." # Site description
+keywords: ["Swarnil Singhai", "Salesforce", "CRM Analytics", "Tableau CRM", "Einstein Analytics", "Apex", "LWC", "Software Engineer", "Twilio", "Bangalore", "Resume", "Portfolio"]
+timezone: Asia/Kolkata # Timezone for blog posts and alike
+short_name: "Swarnil" # The web application short name
+logo: "/assets/logos/logo.svg" # Site logo
+favicons: # Favicons are also used in the manifest file. Syntax is 'size: path'
+  16: '/assets/logos/logo@16px.png'
+  32: '/assets/logos/logo@32px.png'
+  96: '/assets/logos/logo@96px.png'
+  120: '/assets/logos/logo@120px.png'
+  144: '/assets/logos/logo@144px.png'
+  180: '/assets/logos/logo@180px.png'
+  512: '/assets/logos/logo@512px.png'
+  1024: '/assets/logos/logo@1024px.png'
+
+# Author Configuration (imswarnil.yml or in _config.yml)
+#################################################################################################
+author:
+  name: "Swarnil Singhai"
+  tagline: "Cinematic chaos meets code."
+  image: "/assets/images/swarnil.gif" # Path to your main profile image
+  bio: >
+   I'm not just a guy with a camera and a keyboard — I'm a man on a mission. From engineering dashboards to editing timelines, 
+   I breathe narrative into numbers and soul into scripts. With 3 years in the Salesforce ecosystem, deep dives into data, 
+    and a passion for storytelling, I create both products and perspectives. This site is my playground — part resume, part 
+    portfolio, part personal logbook. Expect code, chaos, camera gear breakdowns, and stories straight from Bangalore's caffeinated streets.
+  dob: "1996-07-15" # Date of Birth (YYYY-MM-DD)
+  pronouns: "he/him"
+  native : Mahroni, Uttar Pradesh
+  country : India
+  state : Karnataka
+  city : Bangalore
+  nationality: "Indian"
+  email: "contact@imswarnil.com"
+  website: "https://imswarnil.com"
+
+
+
+
+
+
+social_media:
+  - name: "twitter"
+    icon : x-logo # (or fab fa-x-twitter)
+    url: "https://twitter.com/imswarnil"
+    cta: "Follow me on X"
+  - name: "linkedin"
+    icon : linkedin-logo # (or fab fa-linkedin)
+    url: "https://linkedin.com/in/imswarnil" # General LinkedIn profile
+    cta: "Connect on LinkedIn"
+  - name: "github"
+    icon: fab fa-github # Assuming Font Awesome
+    url: "https://github.com/imswarnil"
+    cta: "Follow on GitHub"
+  - name: "youtube"
+    icon: fab fa-youtube # Assuming Font Awesome
+    url: "https://youtube.com/@imswarnil" # Or /imswarnil
+    cta: "Subscribe on YouTube"
+  - name: "instagram"
+    icon: fab fa-instagram # Assuming Font Awesome
+    url: "https://instagram.com/imswarnil"
+    cta: "Follow on Instagram"
+
+# --------------------------------------------
+ # 1.2. Site Url, Links & Github Repo
+ #----------------------------------------------------------------------------------------------
+baseurl : '/'
+url: 'https://crmanalytics.imswarnil.com' # Site URL
+permalink: /:title  # Permalink style
+repo: "https://github.com/imswarnil/" # Your main GitHub profile
+email: "contact@imswarnil.com" # General contact email for the site
+description_separator: <!-- more -->
+
+# 1.3. CSS, Site Colors & Typography
+#------------------------------------------------------------------------------------------------
+css_inline: true
+sass:
+  style: compressed
+icon_style: duotone # Options: regular, thin, light, bold, fill, duotone  
+theme_color : '#fff'
+fonts:
+  preconnect_urls:
+    - https://fonts.gstatic.com
+  font_urls:
+    - https://fonts.googleapis.com/css2?family=Geist:wght@100&display=swap
+    - https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap
+    - https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap
+
+# Robots And Indexing Settings
+indexing: true
+robots:
+  bots:
+    "*":
+      disallow:
+        - /404
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: true
+  startings: [head, body]
+
+# Service Worker Configuration
+service_worker: true
+
+
+
+google_analytics: "G-GGHMLZR4YQ"
+adsense:
+  enabled: true
+  publisher:
+    id: "ca-pub-1291242080282540"
+    direct: "DIRECT"
+    verification_id: "f08c47fec0942fa0"
+  ads:
+    - name: "Square Ad"
+      width: 300
+      height: 250
+      ad_id: "1234567890"
+      type: "display"
+    - name: "Leaderboard Ad"
+      width: 728
+      height: 90
+      ad_id: "0987654321"
+      type: "display"
+    - name: "Responsive Ad"
+      width: "auto"
+      height: "auto"
+      ad_id: "5678901234"
+      type: "auto"
+
+include:
+  - _pages
+
+# 3. Gem settings
+paginate: 2
+paginate_path: "/week/page:num/"
+
+
+# 5. Collections
+collections:
+  posts:
+    title: Posts
+    output: true
+    description: "My thoughts, articles, and ideas on technology, Salesforce, and development."
+    image: "https://picsum.photos/2560/600?image=866"
+    permalink: /:title
+
+# 6. Jekyll collections settings
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      image: "/assets/default-social-image.png"
+      author: "Swarnil Singhai" 
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
+
+# 9. Site navigation (unchanged from your original for now, can be updated if needed)
+fixed_navbar: true
+navbar:
+  - name: Home
+    link: /
+    icon: house
+  - name: About # This could link to a page that uses resume data
+    link: /about/
+    icon: identification-card
+    icon: "file-text" # e.g., ph-file-text or similar
+  - name: Elements
+    link: /elements/
+    icon: puzzle-piece
+  - name: Layouts
+    link: /#
+    icon: "layout"
+    dropdown:
+      - name: Post Layouts
+        link: /#
+        icon: article
+      - name: Video Layout
+        link: /videos/
+        icon: play-circle
+  - name: Categories
+    link: /categories/
+    icon: tag
+  - name: Example Pages
+    link: /#
+    icon: "sparkle"
+    dropdown:
+      - name: Landing Page
+        link: /landing/
+        icon: rocket-launch
+      - name: Sponsors Page
+        link: /sponsors/
+        icon: handshake
+      - name: Image Gallery
+        link: /gallery/
+        icon: image
+      - name: Products
+        link: /products/
+        icon: package
+      - name: Recipe Page
+        link: /example-recipe/
+        image : "https://yt3.googleusercontent.com/bUPnDYABdzOveHZUSC-0745utTub-SQ76iuOjvYVUEeQrsA1fBMTgXbAsZ1SigmXd6BbtkqnwA=s900-c-k-c0x00ffffff-no-rj"
+      - name: Showcase
+        link: /showcase/
+        icon: star
+
+# 8. Installed Gems
+plugins:
+- jekyll-sitemap
+- jekyll-paginate
+- jekyll-redirect-from
+- jekyll-feed
+- jekyll-commonmark
+- jekyll-include-cache
+- jemoji
+
+
+# 9. Files excluded from Jekyll builds
+exclude:
+- README.md
+- CODE_OF_CONDUCT.md
+- CONTRIBUTING.md
+- screenshot.png
+- LICENSE
+- CNAME
+- Gemfile
+- Gemfile.lock
+- .jekyll-cache
