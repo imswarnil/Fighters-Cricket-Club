@@ -1,40 +1,46 @@
 // =========================================================================
-// THEME VARIABLES (Single Source of Truth)
+// CRICKET CLUB THEME VARIABLES (Single Source of Truth)
 // =========================================================================
 
 // --- Base Colors & Fonts ---
-$primary: #3581e5;
+// Primary color inspired by the cricket pitch green.
+$primary: #1A8546; 
+// Accent color inspired by the traditional red cricket ball.
+$cricket-red: #D32F2F;
+// Accent color for highlights, inspired by a winner's trophy.
+$trophy-gold: #FFC107;
+
 $family-sans-serif: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 $family-monospace: "Roboto Mono", monospace;
 
 // --- Ported Theme Variables ---
-$color-contrast: #000;
-$color-background: #fff;
-$color-background-100: #f3f3f3;
-$color-background-200: #ededed;
-$color-background-300: #dadada;
-$color-border: hsla(0, 0%, 50%, .2);
-$color-border-hover: hsla(0, 0%, 50%, .4);
-$color-foreground: #4d4d4d;
-$color-secondary: #757575;
+$color-contrast: #0a0a0a; // A strong, pure black for high contrast
+$color-background: #ffffff; // Clean white, like cricket kits
+// Lighter backgrounds with a very subtle green tint for cohesion.
+$color-background-100: hsl(145, 20%, 97%); 
+$color-background-200: hsl(145, 15%, 94%);
+$color-background-300: hsl(145, 15%, 90%);
+
+$color-border: hsla(0, 0%, 0%, .1);
+$color-border-hover: hsla(0, 0%, 0%, .2);
+$color-foreground: #363636;
+$color-secondary: #6c757d;
 $color-mute: #b2b2b2;
 
 // --- Spacing & Layout SCSS Variables ---
-// These fix the "Undefined variable" error
 $layout-padding: clamp(16px, 11.25px + 1.25vw, 30px);
 $layout-gap: clamp(60px, 53.2143px + 1.7857vw, 80px);
 
 // --- Typography Weights ---
-// This is the fix for your "light font" problem.
 $weight-light: 300;
-$weight-normal: 400; // Default body weight
+$weight-normal: 400; 
 $weight-medium: 500;
 $weight-semibold: 600;
-$weight-bold: 700;
+$weight-bold: 700; // Making bold a bit stronger for a sporty feel
+$weight-extrabold: 800;
 
 // =========================================================================
 // BULMA VARIABLE OVERRIDES
-// This is the standard way to customize Bulma.
 // =========================================================================
 
 // --- General Overrides ---
@@ -46,11 +52,11 @@ $body-line-height: 1.6;
 
 // --- Color Mapping ---
 $link: $primary;
-$link-hover: $color-contrast;
-$success: #348f3f;
-$danger: #c34d4d;
-$warning: #f7b239;
-$info: #3e68ff;
+$link-hover: darken($primary, 8%); // A darker green on hover
+$success: #28a745;
+$danger: $cricket-red;
+$warning: $trophy-gold;
+$info: #3581e5; // Kept the original blue for info messages
 $text: $color-foreground;
 $text-light: $color-secondary;
 $text-strong: $color-contrast;
@@ -58,7 +64,7 @@ $text-strong: $color-contrast;
 // --- Typography Overrides ---
 $title-family: $family-sans-serif;
 $title-color: $color-contrast;
-$title-weight: $weight-semibold;
+$title-weight: $weight-bold; // Bolder titles for impact
 $subtitle-family: $family-sans-serif;
 $subtitle-color: $color-secondary;
 $subtitle-weight: $weight-normal;
@@ -69,23 +75,23 @@ $strong-weight: $weight-bold;
 $radius-small: 4px;
 $radius: 6px;
 $radius-medium: 8px;
-$radius-large: 14px;
-$radius-rounded: 2rem;
+$radius-large: 12px; // Slightly less rounded for a sharper look
+$radius-rounded: 50rem;
 
 // --- Component Variable Overrides ---
-$box-background-color: $color-background-100;
+$box-background-color: $color-background-100; // Use our green-tinted background
 $box-radius: $radius-large;
-$box-shadow: none;
-$box-padding: 1.5rem;
+$box-shadow: 0 8px 16px hsla(0, 0%, 0%, .04); // Softer, more modern shadow
+$box-padding: 2rem;
 
 $button-family: $family-sans-serif;
 $button-weight: $weight-semibold;
 $button-border-width: 0px;
-$button-radius: $radius-rounded;
+$button-radius: $radius-rounded; // Keep buttons friendly and modern
 
-$card-background-color: $color-background-100;
-$card-radius: $radius-large;
-$card-shadow: none;
+$card-background-color: $color-background; // White cards for clean content sections
+$card-radius: $radius-medium;
+$card-shadow: 0 8px 16px hsla(0, 0%, 0%, .05); // Softer shadow
 $card-header-background-color: transparent;
 $card-header-color: $color-contrast;
 $card-header-weight: $weight-semibold;
@@ -94,39 +100,41 @@ $card-footer-border-top: 1px solid $color-border;
 $input-family: $family-sans-serif;
 $input-background-color: $color-background-100;
 $input-color: $color-contrast;
-$input-border-color: transparent;
-$input-hover-border-color: $color-border;
+$input-border-color: $color-border; // Subtle border by default
+$input-hover-border-color: $color-border-hover;
 $input-focus-border-color: $primary;
 $input-focus-box-shadow-size: 0 0 0 2px;
-$input-radius: $radius-rounded;
+$input-radius: $radius; // Less rounded inputs for a more professional form
 $input-shadow: none;
 
-$navbar-background-color: rgba($color-background, 0.9);
+$navbar-background-color: rgba($color-background, 0.85); // A bit more opaque
 $navbar-item-color: $color-contrast;
-$navbar-item-hover-color: $color-contrast;
-$navbar-item-hover-background-color: $color-background-200;
-$navbar-item-active-background-color: $color-background-200;
+$navbar-item-hover-color: $primary; // Hover color is now pitch green
+$navbar-item-hover-background-color: transparent;
+$navbar-item-active-color: $primary;
+$navbar-item-active-background-color: transparent;
 $navbar-dropdown-background-color: $color-background;
-$navbar-dropdown-border-top: 1px solid $color-border;
+$navbar-dropdown-border-top: 2px solid $primary; // Use primary color for dropdown top border
 $navbar-divider-background-color: $color-border;
 
-$table-color: $color-foreground;
-$table-background-color: transparent;
+$table-background-color: $color-background;
 $table-cell-border: 1px solid $color-border;
+$table-head-background-color: $color-background-100; // Table head gets a slight bg
 $table-head-cell-color: $color-contrast;
 $table-row-hover-background-color: $color-background-100;
 
-$tag-background-color: $color-background-200;
-$tag-color: $color-contrast;
+$tag-background-color: lighten($primary, 45%); // Light green tags
+$tag-color: darken($primary, 10%); // Dark green text on tags
 $tag-radius: $radius;
 
 $menu-item-color: $color-contrast;
 $menu-item-radius: $radius;
-$menu-item-hover-background-color: $color-background-200;
-$menu-item-active-background-color: $color-background-200;
+$menu-item-hover-background-color: $color-background-100;
+$menu-item-active-background-color: lighten($primary, 48%);
+$menu-item-active-color: $primary;
 $menu-label-color: $color-secondary;
 
 $tabs-link-color: $color-secondary;
 $tabs-link-hover-color: $color-contrast;
-$tabs-link-active-color: $color-contrast;
-$tabs-link-active-border-bottom-color: $color-contrast;
+$tabs-link-active-color: $primary; // Active tab link is pitch green
+$tabs-link-active-border-bottom-color: $primary; // Active tab border is pitch green
