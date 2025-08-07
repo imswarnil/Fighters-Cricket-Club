@@ -1,35 +1,31 @@
 // =========================================================================
-// THEME VARIABLES (Web App Style)
+// THEME VARIABLES (Corrected for Jekyll/Sass Compilation)
 // =========================================================================
 
 // --- 1. Base Colors & Fonts ---
-// Primary color for accents, buttons, and active states.
 $primary: #e67e22; 
-$primary-invert: #ffffff; // Text color on top of the primary color
+$primary-invert: #ffffff;
 
-// Typography. Inter is a great font for UI/app design.
 $family-sans-serif: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-$family-monospace: "Roboto Mono", monospace;
 $family-heading: "Bebas Neue", sans-serif;
 
-// --- 2. Color Palette Definitions (Used for Light/Dark Mode) ---
-// We will use CSS Custom Properties for theme switching, defined in _override.scss.
-// These SCSS variables are used to set the initial Bulma theme.
-
-// Light Theme Colors
+// --- 2. Color Palette Definitions ---
+// These are now just standard SCSS variables.
+// Light Theme Colors (Default)
 $light-bg: #f4f7fa;
+$light-navbar-bg: #ffffff;
 $light-card-bg: #ffffff;
 $light-text: #2c3e50;
 $light-text-muted: #7f8c8d;
 $light-border: #e4e7eb;
 
-// Dark Theme Colors (For reference, applied in _override.scss)
-// $dark-bg: #1a202c;
-// $dark-card-bg: #2d3748;
-// $dark-text: #e2e8f0;
-// $dark-text-muted: #a0aec0;
-// $dark-border: #4a5568;
-
+// Dark Theme Colors (For reference, used in _override.scss)
+$dark-bg: #1a202c;
+$dark-navbar-bg: #2d3748;
+$dark-card-bg: #2d3748;
+$dark-text: #e2e8f0;
+$dark-text-muted: #a0aec0;
+$dark-border: #4a5568;
 
 // --- 3. Typography Weights ---
 $weight-light: 300;
@@ -40,78 +36,69 @@ $weight-bold: 700;
 
 // =========================================================================
 // BULMA VARIABLE OVERRIDES
+// These are now set to the static LIGHT THEME values.
 // =========================================================================
 
 // --- General Overrides ---
-// We set these to CSS variables that will be defined in _override.scss.
-// This allows the theme to be switched dynamically with JavaScript.
-$body-background-color: var(--bg-color, $light-bg);
-$body-color: var(--text-color, $light-text);
+$body-background-color: $light-bg;
+$body-color: $light-text;
 $body-family: $family-sans-serif;
-$body-weight: $weight-normal;
 $body-line-height: 1.6;
 
 // --- Color Mapping ---
 $link: $primary;
 $link-hover: darken($primary, 5%);
-$text: var(--text-color, $light-text);
-$text-light: var(--text-muted, $light-text-muted);
-$text-strong: var(--heading-color, $light-text);
+$text: $light-text;
+$text-light: $light-text-muted;
+$text-strong: $light-text;
 
 // --- Typography Overrides ---
 $title-family: $family-heading;
-$title-color: var(--heading-color, $light-text);
-$title-weight: $weight-normal; // Bebas Neue is already bold
+$title-color: $light-text;
+$title-weight: $weight-normal;
 $subtitle-family: $family-sans-serif;
-$subtitle-color: var(--text-muted, $light-text-muted);
-$subtitle-weight: $weight-normal;
-$strong-weight: $weight-semibold;
-$heading-color: var(--heading-color, $light-text);
-$label-color: var(--text-muted, $light-text-muted);
+$subtitle-color: $light-text-muted;
+$heading-color: $light-text; // For .heading class
+$label-color: $light-text-muted;
 
 // --- Sizing & Radius ---
 $radius: 8px;
 $radius-small: 4px;
-$radius-medium: 12px;
-$radius-large: 16px;
-$radius-rounded: 50rem;
 
 // --- Component Variable Overrides ---
-$box-background-color: var(--card-bg, $light-card-bg);
+$box-background-color: $light-card-bg;
 $box-radius: $radius;
 $box-shadow: none;
 
 $button-family: $family-sans-serif;
 $button-weight: $weight-semibold;
-$button-border-width: 1px;
 $button-radius: $radius-small;
 
-$card-background-color: var(--card-bg, $light-card-bg);
+$card-background-color: $light-card-bg;
 $card-radius: $radius;
 $card-shadow: none;
-$card-header-background-color: transparent;
-$card-header-color: var(--heading-color, $light-text);
-$card-header-weight: $weight-semibold;
-$card-footer-border-top: 1px solid var(--border-color, $light-border);
+$card-footer-border-top: 1px solid $light-border;
 
-$navbar-background-color: var(--navbar-bg, $light-card-bg);
-$navbar-item-color: var(--text-muted, $light-text-muted);
+$navbar-background-color: $light-navbar-bg;
+$navbar-item-color: $light-text-muted;
 $navbar-item-hover-color: $primary;
-$navbar-item-hover-background-color: var(--bg-color, $light-bg);
+$navbar-item-hover-background-color: $light-bg;
 $navbar-item-active-color: $primary;
-$navbar-item-active-background-color: var(--bg-color, $light-bg);
-$navbar-box-shadow-size: 0; // Remove navbar shadow
+$navbar-item-active-background-color: $light-bg;
+$navbar-box-shadow-size: 0;
+$navbar-padding-vertical: 0;
+$navbar-padding-horizontal: 1rem;
 
-$table-background-color: var(--card-bg, $light-card-bg);
-$table-cell-border: 1px solid var(--border-color, $light-border);
-$table-head-background-color: var(--bg-color, $light-bg);
-$table-head-cell-color: var(--heading-color, $light-text);
-$table-row-hover-background-color: var(--bg-color, $light-bg);
+$table-background-color: $light-card-bg;
+$table-cell-border: 1px solid $light-border;
+$table-head-background-color: $light-bg;
+$table-head-cell-color: $light-text;
+$table-row-hover-background-color: $light-bg;
 
-$tabs-link-color: var(--text-muted, $light-text-muted);
+$tabs-link-color: $light-text-muted;
 $tabs-link-hover-color: $primary;
 $tabs-link-active-color: $primary;
 $tabs-link-active-border-bottom-color: $primary;
-$tabs-border-bottom-color: var(--border-color, $light-border);
-$tabs-boxed-link-active-background-color: var(--bg-color, $light-bg);
-$tabs-boxed-link-active-border-color: var(--border-color, $light-border);
+$tabs-border-bottom-color: $light-border;
+$tabs-boxed-link-active-background-color: $light-bg;
+$tabs-boxed-link-active-border-color: $light-border;

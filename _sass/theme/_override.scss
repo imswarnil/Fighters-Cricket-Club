@@ -1,66 +1,86 @@
 // =========================================================================
-// GLOBAL OVERRIDES & THEME SWITCHER
+// DYNAMIC THEME OVERRIDES
 // =========================================================================
 @use "sass:math";
 
-// --- 1. Base & Helpers ---
+// --- 1. Light & Dark Mode CSS Variable Definitions ---
+:root {
+    /* Light Mode */
+    --bg-color: #{$light-bg};
+    --navbar-bg: #{$light-navbar-bg};
+    --card-bg: #{$light-card-bg};
+    --text-color: #{$light-text};
+    --text-muted: #{$light-text-muted};
+    --heading-color: #{$light-text};
+    --border-color: #{$light-border};
+}
+
+[data-theme="dark"] {
+    /* Dark Mode */
+    --bg-color: #{$dark-bg};
+    --navbar-bg: #{$dark-navbar-bg};
+    --card-bg: #{$dark-card-bg};
+    --text-color: #{$dark-text};
+    --text-muted: #{$dark-text-muted};
+    --heading-color: #{$dark-text};
+    --border-color: #{$dark-border};
+}
+
+// --- 2. CSS Rules to APPLY the Theme Variables ---
+// These rules override the static styles compiled by Bulma.
 html {
-    // This makes the top navbar layout work correctly
-    // And prevents content from hiding behind it.
-    padding-top: 3.25rem; // Default Bulma navbar height
     background-color: var(--bg-color);
     scroll-behavior: smooth;
     transition: background-color 0.3s ease;
+    // Padding for the fixed top navbar
+    padding-top: 3.25rem;
 }
-
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  transition: color .2s ease;
+// General Typography
+.title, .subtitle, .label, p, strong, th, td, .heading {
+    color: var(--text-color);
+    transition: color 0.3s ease;
 }
+.subtitle, .label, .heading { color: var(--text-muted); }
+.title { color: var(--heading-color); }
 
-hr {
-    background-color: var(--border-color);
-    height: 1px;
-    border: none;
-    margin: 1.5rem 0;
-}
-
-// --- 2. Light & Dark Mode CSS Variables ---
-// This is the modern way to handle theme switching.
-// The SCSS variables in _variable.scss are set to use these.
-:root {
-    /* Light Mode (Default) */
-    --bg-color: #f4f7fa;
-    --navbar-bg: #ffffff;
-    --card-bg: #ffffff;
-    --text-color: #2c3e50;
-    --text-muted: #7f8c8d;
-    --heading-color: #2c3e50;
-    --border-color: #e4e7eb;
-}
-
-[data-theme="dark"] {
-    /* Dark Mode */
-    --bg-color: #1a202c;
-    --navbar-bg: #2d3748;
-    --card-bg: #2d3748;
-    --text-color: #e2e8f0;
-    --text-muted: #a0aec0;
-    --heading-color: #ffffff;
-    --border-color: #4a5568;
-}
-
-// --- 3. Component Hard Overrides ---
-.navbar {
-    border-bottom: 1px solid var(--border-color);
+// Layout & Components
+.box, .card, .panel, .table, .modal-card, .hero {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
+hr {
+    background-color: var(--border-color);
+}
 
-.hero {
+// Navbar
+.navbar {
+    background-color: var(--navbar-bg);
+    border-bottom-color: var(--border-color);
+}
+.navbar-item, .navbar-link, .navbar-burger {
+    color: var(--text-muted);
+}
+.navbar-item:hover, .navbar-item.is-active {
+    background-color: var(--bg-color) !important;
+}
+.navbar-brand .title { color: var(--heading-color); }
+
+// Table
+.table thead th { background-color: var(--bg-color); }
+.table td, .table th { border-color: var(--border-color); }
+.table.is-hoverable tbody tr:hover { background-color: var(--bg-color); }
+
+// Tabs
+.tabs a { border-bottom-color: var(--border-color); }
+
+// Footer
+.footer {
     background-color: var(--card-bg);
-    border-bottom: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
 }
